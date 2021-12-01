@@ -8,13 +8,16 @@ sampleData = [199,200,208,210,200,207,240,269,260,263]
 
 inputData = readFile "./1.input"
 
+
 main = do
        contents <-readFile "./1.input"
        let input = lines contents
-           answer = solution input
+           input' = map (read::String->Int) input
+           answer = solution input'
        print answer
 
 
+solution :: (Ord a, Num a) => [a] -> Int
 solution input = length [x | x <- increaseCheck input, x == GT]
 
 increaseCheck :: (Ord a) => [a] ->[Ordering]
