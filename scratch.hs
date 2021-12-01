@@ -19,7 +19,7 @@ isIncreased [_] = EQ
 isIncreased [x, y] = compare y x
 
 
--- increaseCheck :: (Ord a) => [a] ->[Ordering]
+increaseCheck :: (Ord a) => [a] ->[Ordering]
 increaseCheck [] = [EQ]
 increaseCheck [_] = [EQ]
 increaseCheck [x, y] = [compare y x]
