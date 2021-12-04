@@ -17,16 +17,31 @@ sampleData = [00100,
               00010,
               01010]
               :: [Int]
+--              10111
+--             [3,-2,5,2,-1]
+--             [2,-2,4,2,-2]
+---1
+--2
+--5
+---2
+--3
 
 
-
-
+common :: [Int] -> Int
+common [] = 0
+common [x]
+        | x ==1 = 1
+        | x ==0 = -1
+common (x:xs)
+        | x == 1 =  common xs + 1
+        | x == 0 =  common xs - 1
 
 main = do
    contents <- readFile "./3.input"
    let input = lines contents
        input' = map (read::String->Int) input
-   print $ solution 11 input'
+--   print $ toDec' (filterOx 12 input')
+   print $ solution 12 input'
 
 
 solution width x = toDec' (filterOx width x) * toDec' (filterCO2 width x)
@@ -50,12 +65,6 @@ filterCO2 width x
               place = 10 ^ (width-1)
               com = common $ getPlaces place x
 
-common :: [Int] -> Int
-common [] = 0
-common [a] = a
-common (x:xs)
-        | x == 1 =  common xs + 1
-        | x == 0 =  common xs - 1
 
 getPlace :: (Eq a, Num a, Integral a) => a -> a -> a
 getPlace place x

@@ -1,7 +1,7 @@
 {-
 Advent of Code
 Mark Hegreberg
-2a - calculate final position from submarine headings
+3a: gather diagnostic data about fuel consumption from binary data
 -}
 
 sampleData = [00100,
